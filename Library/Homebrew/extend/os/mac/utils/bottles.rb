@@ -7,7 +7,9 @@ module Utils
       module MacOSOverride
         sig { params(tag: T.nilable(T.any(Symbol, Tag))).returns(Tag) }
         def tag(tag = nil)
-          return Tag.new(system: MacOS.version.to_sym, arch: Hardware::CPU.arch) if tag.nil?
+          if tag.nil? && Homebrew::SimulateSystem.simulating_or_running_on_macos?
+            return Tag.new(system: MacOS.version.to_sym, arch: Hardware::CPU.arch)
+          end
 
           super
         end
@@ -24,7 +26,8 @@ module Utils
       def find_matching_tag(tag, no_older_versions: false)
         # Used primarily by developers testing beta macOS releases.
         if no_older_versions ||
-           (OS::Mac.version.prerelease? &&
+           (Homebrew::SimulateSystem.simulating_or_running_on_macos? &&
+            OS::Mac.version.prerelease? &&
             Homebrew::EnvConfig.developer? &&
             Homebrew::EnvConfig.skip_or_later_bottles?)
           generic_find_matching_tag(tag)
