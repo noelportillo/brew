@@ -1265,7 +1265,7 @@ Treat all named arguments as casks\.
 Summarise contributions to Homebrew repositories\.
 .TP
 \fB\-\-repositories\fP
-Specify a comma\-separated list of repositories to search\. Supported repositories: \fBbrew\fP, \fBcore\fP, \fBcask\fP, \fBaliases\fP, \fBbundle\fP, \fBcommand\-not\-found\fP, \fBtest\-bot\fP and \fBservices\fP\&\. Omitting this flag, or specifying \fB\-\-repositories=primary\fP, searches only the main repositories: brew,core,cask\. Specifying \fB\-\-repositories=all\fP, searches all repositories\.
+Specify a comma\-separated list of repositories to search\. Supported repositories: \fBbrew\fP, \fBcore\fP, \fBcask\fP, \fBaliases\fP, \fBbundle\fP, \fBtest\-bot\fP and \fBservices\fP\&\. Omitting this flag, or specifying \fB\-\-repositories=primary\fP, searches only the main repositories: brew,core,cask\. Specifying \fB\-\-repositories=all\fP, searches all repositories\.
 .TP
 \fB\-\-from\fP
 Date (ISO\-8601 format) to start searching contributions\. Omitting this flag searches the last year\.
@@ -1993,8 +1993,6 @@ Read the \fBBrewfile\fP from \fB~/\.Brewfile\fP or the \fBHOMEBREW_BUNDLE_FILE_G
 .TP
 \fB\-\-zap\fP
 \fBcleanup\fP casks using the \fBzap\fP command instead of \fBuninstall\fP\&\.
-.SS "\fBcommand\-not\-found\-init\fP"
-Print instructions for setting up the command\-not\-found hook for your shell\. If the output is not to a tty, print the appropriate handler script for your shell\.
 .SS "\fBservices\fP \fR[\fIsubcommand\fP]"
 Manage background services with macOS\[u2019] \fBlaunchctl\fP(1) daemon manager or Linux\[u2019]s \fBsystemctl\fP(1) service manager\.
 .P
@@ -2164,31 +2162,6 @@ Use these deleted formulae rather than running the formulae detection steps\.
 Use these skipped or failed formulae from formulae steps for a formulae dependents step\.
 .SS "\fBunalias\fP \fIalias\fP \fR[\.\.\.]"
 Remove aliases\.
-.SS "\fBwhich\-formula\fP \fR[\fB\-\-explain\fP] \fIcommand\fP \fR[\.\.\.]"
-Show which formula(e) provides the given command\.
-.TP
-\fB\-\-explain\fP
-Output explanation of how to get \fIcommand\fP by installing one of the providing formulae\.
-.SS "\fBwhich\-update\fP \fR[\fIoptions\fP] \fR[\fIdatabase\fP]"
-Database update for \fBbrew which\-formula\fP\&\.
-.TP
-\fB\-\-stats\fP
-Print statistics about the database contents (number of commands and formulae, list of missing formulae)\.
-.TP
-\fB\-\-commit\fP
-Commit the changes using \fBgit\fP\&\.
-.TP
-\fB\-\-update\-existing\fP
-Update database entries with outdated formula versions\.
-.TP
-\fB\-\-install\-missing\fP
-Install and update formulae that are missing from the database and don\[u2019]t have bottles\.
-.TP
-\fB\-\-eval\-all\fP
-Evaluate all installed taps, rather than just the core tap\.
-.TP
-\fB\-\-max\-downloads\fP
-Specify a maximum number of formulae to download and update\.
 .SH "CUSTOM EXTERNAL COMMANDS"
 Homebrew, like \fBgit\fP(1), supports external commands\. These are executable scripts that reside somewhere in the \fBPATH\fP, named \fBbrew\-\fP\fIcmdname\fP or \fBbrew\-\fP\fIcmdname\fP\fB\&\.rb\fP, which can be invoked like \fBbrew\fP \fIcmdname\fP\&\. This allows you to create your own commands without modifying Homebrew\[u2019]s internals\.
 .P

@@ -110,7 +110,6 @@ jobs:
         run: |
           brew tap homebrew/aliases
           brew tap homebrew/bundle
-          brew tap homebrew/command-not-found
           brew tap homebrew/formula-analytics
           brew tap homebrew/portable-ruby
           brew tap homebrew/services
@@ -125,7 +124,6 @@ jobs:
                      homebrew/test-bot
 
           brew style homebrew/aliases \
-                     homebrew/command-not-found \
                      homebrew/formula-analytics \
                      homebrew/portable-ruby
 

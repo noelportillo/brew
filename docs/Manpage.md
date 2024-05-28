@@ -1997,10 +1997,10 @@ Summarise contributions to Homebrew repositories.
 `--repositories`
 
 : Specify a comma-separated list of repositories to search. Supported
-  repositories: `brew`, `core`, `cask`, `aliases`, `bundle`,
-  `command-not-found`, `test-bot` and `services`. Omitting this flag, or
-  specifying `--repositories=primary`, searches only the main repositories:
-  brew,core,cask. Specifying `--repositories=all`, searches all repositories.
+  repositories: `brew`, `core`, `cask`, `aliases`, `bundle`, `test-bot` and
+  `services`. Omitting this flag, or specifying `--repositories=primary`,
+  searches only the main repositories: brew,core,cask. Specifying
+  `--repositories=all`, searches all repositories.
 
 `--from`
 
@@ -3119,11 +3119,6 @@ flags which will help with finding keg-only dependencies like `openssl`,
 
 : `cleanup` casks using the `zap` command instead of `uninstall`.
 
-### `command-not-found-init`
-
-Print instructions for setting up the command-not-found hook for your shell. If
-the output is not to a tty, print the appropriate handler script for your shell.
-
 ### `services` \[*`subcommand`*\]
 
 Manage background services with macOS' `launchctl`(1) daemon manager or Linux's
@@ -3378,45 +3373,6 @@ and Linux workers.
 ### `unalias` *`alias`* \[...\]
 
 Remove aliases.
-
-### `which-formula` \[`--explain`\] *`command`* \[...\]
-
-Show which formula(e) provides the given command.
-
-`--explain`
-
-: Output explanation of how to get *`command`* by installing one of the
-  providing formulae.
-
-### `which-update` \[*`options`*\] \[*`database`*\]
-
-Database update for `brew which-formula`.
-
-`--stats`
-
-: Print statistics about the database contents (number of commands and formulae,
-  list of missing formulae).
-
-`--commit`
-
-: Commit the changes using `git`.
-
-`--update-existing`
-
-: Update database entries with outdated formula versions.
-
-`--install-missing`
-
-: Install and update formulae that are missing from the database and don't have
-  bottles.
-
-`--eval-all`
-
-: Evaluate all installed taps, rather than just the core tap.
-
-`--max-downloads`
-
-: Specify a maximum number of formulae to download and update.
 
 ## CUSTOM EXTERNAL COMMANDS
 
