@@ -66,6 +66,19 @@ class MacOSVersion < Version
     result
   end
 
+  sig { params(comparator: String, other: T.any(Version, T::Array[MacOSVersion])).returns(T::Boolean) }
+  def compare(comparator, other)
+    if other.is_a?(Version)
+      super
+    else
+      case comparator
+      when "==" then other.include?(self)
+      when "!=" then other.exclude?(self)
+      else raise ArgumentError, "Unsupported comparator for Array input: #{comparator}"
+      end
+    end
+  end
+
   sig { returns(T.self_type) }
   def strip_patch
     return self if null?
@@ -98,6 +111,11 @@ class MacOSVersion < Version
     @pretty_name = pretty_name unless frozen?
 
     pretty_name
+  end
+
+  sig { returns(String) }
+  def inspect
+    "#<#{self.class.name}: #{to_s.inspect}>"
   end
 
   sig { returns(T::Boolean) }

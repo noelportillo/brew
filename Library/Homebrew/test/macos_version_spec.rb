@@ -75,6 +75,11 @@ RSpec.describe MacOSVersion do
     end
   end
 
+  specify "#compare" do
+    expect(version.compare("==", [described_class.new("10.13"), described_class.new("10.14")])).to be true
+    expect(version.compare("!=", [described_class.new("10.13"), described_class.new("11.0")])).to be true
+  end
+
   specify "#pretty_name" do
     expect(described_class.new("10.11").pretty_name).to eq("El Capitan")
     expect(described_class.new("10.14").pretty_name).to eq("Mojave")
