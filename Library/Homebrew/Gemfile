@@ -33,7 +33,7 @@ group :livecheck, optional: true do
   gem "ruby-progressbar", require: false
 end
 group :man, optional: true do
-  gem "kramdown", require: false
+  gem "kramdown", ">= 2.5.1", require: false
 end
 group :pr_upload, :bottle, optional: true do
   gem "json_schemer", require: false
