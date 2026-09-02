@@ -61,7 +61,7 @@ group :tests, optional: true do
   gem "rspec-retry", require: false
   gem "rspec-sorbet", require: false
   gem "simplecov", require: false
-  gem "simplecov-cobertura", require: false
+  gem "simplecov-cobertura", ">= 3.0.0", require: false
 end
 group :typecheck, optional: true do
   gem "method_source", require: false
